@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!--Title-->
+    <title>Blog Details | Blogs</title>
+    <!--Stylesheet-->
+    <link rel="stylesheet" href="/stylesheets/style.css" />
+    <!--Google Fonts-->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Tangerine:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;0,300;0,400;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,600;1,700;1,800;1,900&display=swap"
+      rel="stylesheet"
+    />
+    <!--Font Awesome-->
+    <script
+      src="https://kit.fontawesome.com/5cc6fb9f6b.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
+    <!--Header-->
+    <header>
+      <div class="container flex justify-between align-center">
+        <a class="logo" href="/"> <span>B</span>logs</a>
+
+        <% if(user){ %>
+        <nav class="flex justify-between align-end">
+          <a class="user" href="/blogs/dashBoard"><%= user.name %></a>
+          <a style="margin-right: 0.5rem" href="/blogs"
+            ><button class="btn btn-primary">Go Back</button></a
+          >
+          <a href="/users/logout"
+            ><button class="btn btn-primary">Log Out</button></a
+          >
+        </nav>
+        <% }else{ %>
+        <nav class="flex justify-between align-end">
+          <a style="margin-right: 0.5rem" href="/users/login"
+            ><button class="btn btn-primary">Login</button></a
+          >
+          <a href="/users/register"
+            ><button class="btn btn-primary">Register</button></a
+          >
+        </nav>
+        <% } %>
+      </div>
+    </header>
+    <!--Main-->
+    <main class="blogDetails">
+      <section class="container flex justify-between align-start">
+        <article class="flex-60">
+          <h1><%= blog.title %></h1>
+          <cite>~<%= blog.author.name %></cite>
+          <p><%= blog.description %></p>
+          <div class="feedbacks flex justify-between align-center">
+            <div>
+              <span><%= blog.likes %></span>
+              <a href="/blogs/click/<%= blog._id %>/likes"
+                ><i class="fas fa-thumbs-up"></i
+              ></a>
+            </div>
+            <div>
+              <span><%= blog.flames %></span>
+              <a href="/blogs/click/<%= blog._id %>/flames"
+                ><i class="fab fa-gripfire"></i
+              ></a>
+            </div>
+            <div>
+              <span><%= blog.hearts %></span>
+              <a href="/blogs/click/<%= blog._id %>/hearts"
+                ><i class="fas fa-heart"></i
+              ></a>
+            </div>
+            <div>
+              <span><%= blog.applauses %></span>
+              <a href="/blogs/click/<%= blog._id %>/applauses"
+                ><i class="fas fa-sign-language"></i
+              ></a>
+            </div>
+            <div>
+              <span><%= blog.dislikes %></span>
+              <a href="/blogs/click/<%= blog._id %>/dislikes"
+                ><i class="fas fa-thumbs-down"></i
+              ></a>
+            </div>
+          </div>
+          <div class="handlers">
+            <% if(isOwner){ %>
+            <a href="/blogs/<%=blog._id%>/edit"
+              ><button class="btn btn-primary">Edit</button></a
+            >
+            <a href="/blogs/<%=blog._id%>/delete"
+              ><button class="btn btn-primary">Delete</button></a
+            >
+            <% } %>
+
+            <a href="/blogs"
+              ><button class="btn btn-primary">Go Back</button></a
+            >
+          </div>
+        </article>
+
+        <div class="flex-38 commentSection">
+          <div class="comments">
+            <% if(blog.comments.length>0){ blog.comments.forEach(comment=>{ %>
+            <p class="comment flex justify-between align-center">
+              <%= comment.content %>
+              <span>
+                <cite style="color: rgb(230, 151, 4); font-size: 0.8rem"
+                  >~<%= comment.writer.name %></cite
+                >
+                <% if(user && user.id && comment.writer.id === user.id){ %>
+                <span>
+                  <a
+                    style="color: black"
+                    href="/comments/<%= comment._id %>/edit"
+                    ><i style="color: black" class="far fa-edit edit"></i
+                  ></a>
+                  <a
+                    style="color: black"
+                    href="/comments/<%= comment._id %>/delete"
+                    ><i style="color: black" class="far fa-trash-alt delete"></i
+                  ></a>
+                </span>
+                <% } %>
+              </span>
+            </p>
+            <% });}else{ %>
+            <p style="text-align: center">No comments yet!</p>
+            <% } %>
+          </div>
+
+          <form
+            class="flex justify-between align-center"
+            action="/blogs/<%= blog._id %>/comments"
+            method="POST"
+          >
+            <input class="flex-88" type="text" name="content" />
+            <button class="flex-10" type="submit">
+              <i class="fas fa-paper-plane"></i>
+            </button>
+          </form>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>

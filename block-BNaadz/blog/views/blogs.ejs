@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <!--Title-->
-    <title>Blog Details | Blogs</title>
+    <title>List Of Blogs | Blogs</title>
     <!--Stylesheet-->
     <link rel="stylesheet" href="/stylesheets/style.css" />
     <!--Google Fonts-->
@@ -26,7 +26,7 @@
     ></script>
   </head>
   <body>
-    <!-- Header-->
+    <!--Header-->
     <header>
       <div class="container flex justify-between align-center">
         <a class="logo" href="/"> <span>B</span>logs</a>
@@ -34,7 +34,7 @@
         <% if(user){ %>
         <nav class="flex justify-between align-end">
           <a class="user" href="/blogs/dashBoard"><%= user.name %></a>
-          <a style="margin-right: 0.5rem" href="/blogs"
+          <a style="margin-right: 0.5rem" href="/"
             ><button class="btn btn-primary">Go Back</button></a
           >
           <a href="/users/logout"
@@ -53,9 +53,33 @@
         <% } %>
       </div>
     </header>
-    <main style="text-align: center">
-      <h1><%= message %></h1>
-      <h2>Error Status: <%= error.status %></h2>
+    <!--Main-->
+    <main class="blogs container">
+    <% if(user){ %>
+
+      <section class="addBlog flex justify-around align-center">
+        <a href="/blogs/new">
+          <div><i class="far fa-plus-square"></i> Add Blog</div>
+        </a>
+      </section>
+    <% } %>
+
+      <section class="blogsList flex justify-center align-start flex-column">
+        <% if(blogs.length){ blogs.forEach(blog=>{ %>
+        <article class="blog">
+          <h2><%= blog.title %></h2>
+          <cite>~<%= blog.author.name %> </cite>
+          <p><%= blog.description.substr(0,200) %>...</p>
+          <a href="/blogs/<%= blog._id %>">
+            <button class="btn btn-primary">Read</button>
+          </a>
+        </article>
+        <% }); }else{ %>
+        <h2 style="text-align: center; width: 100%; margin-top: 1rem">
+          No Blogs Yet
+        </h2>
+        <% } %>
+      </section>
     </main>
   </body>
 </html>

@@ -1,8 +1,747 @@
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+
+/* HTML5 display-role reset for older browsers */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  display: block;
+}
+
 body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  line-height: 1;
+}
+
+ol,
+ul {
+  list-style: none;
+}
+
+blockquote,
+q {
+  quotes: none;
+}
+
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: '';
+  content: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+.flex {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.justify-between {
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.justify-start {
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+}
+
+.justify-end {
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+}
+
+.justify-around {
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+}
+
+.justify-evenly {
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+}
+
+.justify-center {
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.flex-column {
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.flex-wrap {
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+.align-center {
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.align-start {
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+}
+
+.align-end {
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
+}
+
+.align-between {
+  -webkit-box-align: space-between;
+      -ms-flex-align: space-between;
+          align-items: space-between;
+}
+
+.align-around {
+  -webkit-box-align: space-around;
+      -ms-flex-align: space-around;
+          align-items: space-around;
+}
+
+.align-evenly {
+  -webkit-box-align: space-evenly;
+      -ms-flex-align: space-evenly;
+          align-items: space-evenly;
+}
+
+.flex-10 {
+  -webkit-box-flex: 0;
+      -ms-flex: 0 1 10%;
+          flex: 0 1 10%;
+}
+
+.flex-20 {
+  -webkit-box-flex: 0;
+      -ms-flex: 0 1 20%;
+          flex: 0 1 20%;
+}
+
+.flex-25 {
+  -webkit-box-flex: 0;
+      -ms-flex: 0 1 25%;
+          flex: 0 1 25%;
+}
+
+.flex-30 {
+  -webkit-box-flex: 0;
+      -ms-flex: 0 1 30%;
+          flex: 0 1 30%;
+}
+
+.flex-32 {
+  -webkit-box-flex: 0;
+      -ms-flex: 0 1 32%;
+          flex: 0 1 32%;
+}
+
+.flex-38 {
+  -webkit-box-flex: 0;
+      -ms-flex: 0 1 38%;
+          flex: 0 1 38%;
+}
+
+.flex-40 {
+  -webkit-box-flex: 0;
+      -ms-flex: 0 1 40%;
+          flex: 0 1 40%;
+}
+
+.flex-48 {
+  -webkit-box-flex: 0;
+      -ms-flex: 0 1 48%;
+          flex: 0 1 48%;
+}
+
+.flex-50 {
+  -webkit-box-flex: 0;
+      -ms-flex: 0 1 50%;
+          flex: 0 1 50%;
+}
+
+.flex-60 {
+  -webkit-box-flex: 0;
+      -ms-flex: 0 1 60%;
+          flex: 0 1 60%;
+}
+
+.flex-88 {
+  -webkit-box-flex: 0;
+      -ms-flex: 0 1 88%;
+          flex: 0 1 88%;
+}
+
+.flex-100 {
+  -webkit-box-flex: 0;
+      -ms-flex: 0 1 100%;
+          flex: 0 1 100%;
+}
+
+/*Global*/
+html {
+  font-size: 16px;
+}
+
+body {
+  font-family: 'Nunito', sans-serif;
+  font-size: 1.125rem;
+  line-height: 1.5;
+  background-color: whitesmoke;
+}
+
+*,
+*::before,
+*::after {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+.container {
+  max-width: 1480px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.padding {
+  padding: 5rem 0;
 }
 
 a {
-  color: #00B7FF;
+  text-decoration: none;
+}
+
+/* Images */
+.font-0 {
+  font-size: 0;
+}
+
+.full-width {
+  width: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+/* Headings */
+h1 {
+  font-size: 3rem;
+}
+
+h2 {
+  font-size: 2.5rem;
+}
+
+h3 {
+  font-size: 2rem;
+}
+
+h4 {
+  font-size: 1.5rem;
+}
+
+h5 {
+  font-size: 1rem;
+}
+
+h6 {
+  font-size: 0.66rem;
+}
+
+/* Buttons */
+.btn {
+  display: inline-block;
+  padding: 0.6rem 1.2rem;
+  border-radius: 0.35rem;
+  outline: none;
+  border: none;
+}
+
+.btn-primary {
+  color: orange;
+  background-color: rgba(0, 0, 0, 0.9);
+  font-size: 1rem;
+}
+
+.btn-primary:hover {
+  background-color: black;
+  cursor: pointer;
+}
+
+.btn-secondary {
+  color: orange;
+  background-color: rgba(0, 0, 0, 0.9);
+  border: 2px solid black;
+  font-size: 1.5rem;
+}
+
+.btn-secondary:hover {
+  background-color: black;
+  cursor: pointer;
+}
+
+header {
+  -webkit-box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+          box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+}
+
+header .logo {
+  font-family: 'Tangerine', cursive;
+  -webkit-columns: black;
+          columns: black;
+  font-size: 3.25rem;
+  font-weight: 700;
+}
+
+header .logo span {
+  color: orange;
+}
+
+header a {
+  color: black;
+  font-size: 1.5rem;
+}
+
+header .user {
+  margin-right: 1rem;
+  font-weight: 600;
+  font-size: 1.6rem;
+}
+
+header .user:hover {
+  color: #ffa600;
+  text-shadow: 1px 1px 1px black;
+}
+
+.home .hero {
+  height: 90vh;
+}
+
+.home div {
+  text-align: center;
+}
+
+.home .icon {
+  font-family: 'Tangerine', cursive;
+  -webkit-columns: black;
+          columns: black;
+  font-size: 20rem;
+  font-weight: 700;
+  text-shadow: 6px 6px 16px black;
+}
+
+.home .icon span {
+  color: orange;
+}
+
+.blogs h1 {
+  color: orange;
+  text-align: center;
+  font-weight: 600;
+  margin-top: 1rem;
+}
+
+.blogs .blog {
+  border: 1px solid black;
+  width: 100%;
+  -webkit-box-flex: 0;
+      -ms-flex: 0 1 100%;
+          flex: 0 1 100%;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  margin-top: 1rem;
+}
+
+.blogs .blog button {
+  margin-top: 0.5rem;
+}
+
+.blogs .blog cite {
+  color: orange;
+  font-style: italic;
+  font-weight: 600;
+}
+
+.blogs .addBlog {
+  border: 1px solid black;
+  width: 100%;
+  -webkit-box-flex: 0;
+      -ms-flex: 0 1 100%;
+          flex: 0 1 100%;
+  padding: 2rem;
+  border-radius: 0.5rem;
+  margin-top: 1rem;
+}
+
+.blogs .addBlog a {
+  color: orange;
+  font-size: 2rem;
+}
+
+.blogDetails article {
+  margin-top: 1rem;
+  border: 1px solid black;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  height: 88.1vh;
+}
+
+.blogDetails article h1 {
+  font-weight: 600;
+}
+
+.blogDetails article cite {
+  display: inline-block;
+  color: #ff7b00;
+  font-style: italic;
+  font-weight: 600;
+  font-size: 1.4rem;
+  margin-bottom: 0.5rem;
+}
+
+.blogDetails article p {
+  border-top: 1px solid black;
+  padding: 1rem;
+  height: 61.5vh;
+  overflow-y: auto;
+  padding-right: 0.25rem;
+}
+
+.blogDetails article p::-webkit-scrollbar {
+  width: 5px;
+}
+
+.blogDetails article p::-webkit-scrollbar-thumb {
+  background-color: #ffd079;
+  border-radius: 30px;
+}
+
+.blogDetails article .handlers {
+  text-align: center;
+}
+
+.blogDetails .feedbacks {
+  width: 100%;
+  border: 1px solid black;
+  border-radius: 0.4rem;
+  padding: 0.5rem;
+  margin: 1rem auto;
+}
+
+.blogDetails .feedbacks a {
+  color: #a19f9f;
+}
+
+.blogDetails .feedbacks a:hover {
+  color: #ff7b00;
+}
+
+.blogDetails .handlers {
+  text-align: center;
+}
+
+.blogDetails .commentSection {
+  position: relative;
+  height: 88vh;
+  border-radius: 0.5rem;
+  border: 1px solid black;
+  padding: 1rem;
+  margin-top: 1rem;
+}
+
+.blogDetails .commentSection .comments {
+  padding-right: 0.25rem;
+  overflow: auto;
+  height: 80vh;
+}
+
+.blogDetails .commentSection .comments::-webkit-scrollbar {
+  width: 5px;
+}
+
+.blogDetails .commentSection .comments::-webkit-scrollbar-thumb {
+  background-color: #ffd079;
+  border-radius: 30px;
+}
+
+.blogDetails .commentSection form {
+  position: absolute;
+  bottom: 1rem;
+  width: 95%;
+  background-color: #fff;
+  padding: 0.5rem;
+}
+
+.blogDetails .commentSection input,
+.blogDetails .commentSection button {
+  height: 1.5rem;
+}
+
+.blogDetails .commentSection input:focus,
+.blogDetails .commentSection button:focus {
+  outline: 1px solid gray;
+}
+
+.blogDetails .commentSection .comment {
+  margin-bottom: 0.5rem;
+  background-color: #dadada;
+  border-radius: 0.4rem;
+  padding: 0.25rem 0.5rem;
+  font-style: italic;
+}
+
+.blogDetails .commentSection .comment span {
+  display: none;
+}
+
+.blogDetails .commentSection .comment:hover span {
+  display: inline-block;
+}
+
+.blogDetails .commentSection .comment{
+  padding-left: 1rem;
+}
+
+.blogDetails .commentSection .comment {
+  cursor: pointer;
+}
+
+.newBlog h2 {
+  text-align: center;
+  margin-top: 1rem;
+}
+
+.newBlog form {
+  width: 60%;
+  border: 2px solid orange;
+  margin: 1rem auto;
+  background-color: #ebebeb;
+  padding: 1.25rem;
+  border-radius: 0.5rem;
+  -webkit-box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.5);
+          box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.5);
+}
+
+.newBlog form input {
+  width: 100%;
+  height: 2rem;
+  background-color: white;
+  margin-bottom: 1rem;
+  padding-left: 0.5rem;
+  border: 1px solid black;
+  font-family: 'Nunito', sans-serif;
+}
+
+.newBlog form input::-webkit-input-placeholder {
+  color: black;
+  font-size: 0.9rem;
+}
+
+.newBlog form input:-ms-input-placeholder {
+  color: black;
+  font-size: 0.9rem;
+}
+
+.newBlog form input::-ms-input-placeholder {
+  color: black;
+  font-size: 0.9rem;
+}
+
+.newBlog form input::placeholder {
+  color: black;
+  font-size: 0.9rem;
+}
+
+.newBlog form input:focus {
+  outline: none;
+  border: none;
+  outline: 2px solid black;
+}
+
+.newBlog form textarea {
+  border: 1px solid black;
+  width: 100%;
+  height: 30rem;
+  margin-bottom: 0.5rem;
+  padding-top: 0.4rem;
+  padding-left: 0.5rem;
+  font-family: 'Nunito', sans-serif;
+  font-size: 0.9rem;
+}
+
+.newBlog form textarea:focus {
+  outline: none;
+  border: none;
+  outline: 2px solid black;
+}
+
+.newBlog form .submit {
+  font-size: 0.9rem;
+  margin-bottom: 0;
+}
+
+.newBlog form .submit:hover {
+  background-color: black;
+  color: orange;
+  border: none;
+  outline: 2px solid black;
+}
+
+.login {
+  text-align: center;
+}
+
+.login h2 {
+  text-align: center;
+  font-weight: 600;
+  margin-top: 1rem;
+}
+
+.login form {
+  margin: 1rem auto;
+  padding: 1rem;
+  padding-bottom: 0;
+  border: 2px solid orange;
+  border-radius: 0.5rem;
+  width: 35%;
+}
+
+.login form input {
+  margin-bottom: 1rem;
+  padding-left: 0.5rem;
+  width: 100%;
+  height: 2rem;
+  border: 1px solid gray;
+  background-color: white;
+}
+
+.login form input:focus {
+  outline: none;
+  outline: 2px solid black;
+  border: none;
+}
+
+.login form #submit:hover {
+  cursor: pointer;
+  outline: 2px solid black;
+  border: none;
+  color: orange;
+  font-size: 0.9rem;
+  background-color: black;
 }
