@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <!--Title-->
-    <title>Home | Blogs</title>
+    <title>Blog Details | Blogs</title>
     <!--Stylesheet-->
     <link rel="stylesheet" href="/stylesheets/style.css" />
     <!--Google Fonts-->
@@ -31,28 +31,41 @@
       <div class="container flex justify-between align-center">
         <a class="logo" href="/"> <span>B</span>logs</a>
 
-        <nav>
-          <a href="/users/login"
+        <% if(user){ %>
+        <nav class="flex justify-between align-end">
+          <a class="user" href="/blogs/dashBoard"><%= user.name %></a>
+          <a style="margin-right: 0.5rem" href="/blogs"
+            ><button class="btn btn-primary">Go Back</button></a
+          >
+          <a href="/users/logout"
+            ><button class="btn btn-primary">Log Out</button></a
+          >
+        </nav>
+        <% }else{ %>
+        <nav class="flex justify-between align-end">
+          <a style="margin-right: 0.5rem" href="/users/login"
             ><button class="btn btn-primary">Login</button></a
           >
           <a href="/users/register"
             ><button class="btn btn-primary">Register</button></a
           >
         </nav>
+        <% } %>
       </div>
     </header>
     <!--Main-->
-    <main class="home">
-      <section class="hero container flex justify-between align-center">
-        <div class="flex-48">
-          <p class="icon"><span>B</span>logs</p>
-        </div>
-        <div class="flex-48">
-          <a href="/blogs"
-            ><button class="btn btn-secondary">Start Reading</button></a
-          >
-        </div>
-      </section>
+    <main class="newBlog">
+      <h2>Write Blog</h2>
+      <form action="/blogs" method="POST">
+        <input type="text" name="title" placeholder="Enter Title Here..." />
+
+        <textarea name="description">
+Enter Description Here...
+    </textarea
+        >
+        <input type="text" name="tags" placeholder="Enter Tags Here..." />
+        <input class="submit" type="submit" value="Add Blog" />
+      </form>
     </main>
   </body>
 </html>
