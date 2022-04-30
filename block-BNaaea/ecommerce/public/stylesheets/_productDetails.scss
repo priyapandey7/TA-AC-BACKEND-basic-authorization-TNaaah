@@ -1,0 +1,52 @@
+.productDetails {
+  .details {
+    margin-top: 1rem;
+    .image {
+      border: 2px solid green;
+      border-radius: 0.5rem;
+      overflow: hidden;
+      width: 25rem;
+      height: 30rem;
+      margin-right: 1rem;
+    }
+    a {
+      margin-left: 0;
+    }
+  }
+  .comments {
+    margin-top: 1rem;
+    border-top: 2px solid green;
+    padding-top: 1rem;
+    width: 50%;
+    .comment {
+      background-color: rgba(0, 255, 0, 0.3);
+      padding: 0.5rem;
+      border-radius: 0.55rem;
+      margin-bottom: 0.75rem;
+      a {
+        display: none;
+      }
+    }
+    .comment:hover a {
+      display: inline-block;
+    }
+    form {
+      background-color: rgba(100, 255, 0, 0.3);
+      padding: 0.5rem;
+      border-radius: 0.55rem;
+      margin-bottom: 0.75rem;
+    }
+    input {
+      width: 88%;
+      height: 2rem;
+    }
+    button {
+      width: 10%;
+      height: 1.95rem;
+      color: green;
+    }
+    input:focus {
+      outline-color: green;
+    }
+  }
+}

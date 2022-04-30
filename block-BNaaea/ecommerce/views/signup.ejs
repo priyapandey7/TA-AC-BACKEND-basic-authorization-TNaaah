@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!--Title-->
+    <title>SignUp | E-Cart</title>
+    <!--Stylesheet-->
+    <link rel="stylesheet" href="/stylesheets/style.css" />
+    <!--Google Fonts-->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;0,300;0,400;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,600;1,700;1,800&display=swap"
+      rel="stylesheet"
+    />
+    <!--Font Awesome-->
+    <script
+      src="https://kit.fontawesome.com/5cc6fb9f6b.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
+    <!--Header-->
+    <header class="header">
+      <div class="container flex justify-between align-center">
+        <a href="/" class="logo"><span>E</span>cart</a>
+        <div class="flex justify-center align-center">
+          <a class="btn btn-primary" href="/users/signin">Sign In</a>
+        </div>
+      </div>
+    </header>
+    <!--Main-->
+    <main class="signin container">
+      <h2>SignUp</h2>
+      <% if(error){ %>
+      <p><%= error %></p>
+      <% } %>
+
+      <form action="/users/signup" method="POST">
+        <input type="text" name="name" placeholder="Enter Your Name..." />
+        <input type="text" name="email" placeholder="Enter Your Email..." />
+        <input type="text" name="phone" placeholder="Enter Your Phone..." />
+        <select id="isAdmin" name="isAdmin">
+          <option for="isAdmin" value="user">User</option>
+          <option for="isAdmin" value="admin">Admin</option>
+        </select>
+        <input
+          type="password"
+          name="password"
+          placeholder="Enter Your Password..."
+        />
+        <input class="submit" type="submit" value="SignUp" />
+      </form>
+    </main>
+  </body>
+</html>

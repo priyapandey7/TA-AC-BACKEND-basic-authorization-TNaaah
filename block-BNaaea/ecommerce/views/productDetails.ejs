@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!--Title-->
+    <title>Product Details | E-Cart</title>
+    <!--Stylesheet-->
+    <link rel="stylesheet" href="/stylesheets/style.css" />
+    <!--Google Fonts-->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;0,300;0,400;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,600;1,700;1,800&display=swap"
+      rel="stylesheet"
+    />
+    <!--Font Awesome-->
+    <script
+      src="https://kit.fontawesome.com/5cc6fb9f6b.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
+    <!--Header-->
+    <header class="header">
+      <div class="container flex justify-between align-center">
+        <a href="/" class="logo"><span>E</span>cart</a>
+        <div class="flex justify-between align-center">
+          <a class="btn btn-primary" href="/users/products">Go Back</a>
+          <% if(Boolean(user)){ %>
+          <a class="btn btn-primary" href="/users/logout">Log Out</a>
+          <% }; %>
+          <a class="btn btn-primary" href="/products/mycart"
+            ><i class="fas fa-cart-arrow-down"></i
+          ></a>
+
+          <div class="user-info flex justify-between align-center flex-column">
+            <% if(Boolean(user)){ %>
+            <h2><%= user.name %></h2>
+            <% if(user && (user.isAdmin === 'true')){ %>
+            <a href="/users/adminDashboard"><p>Admin</p></a>
+            <% }else{ %>
+            <p></p>
+            <%};}else{ %>
+            <a class="btn btn-primary" href="/users/signin">Sign In</a>
+            <% }; %>
+          </div>
+        </div>
+      </div>
+    </header>
+    <!--Main-->
+    <main class="productDetails container">
+      <div class="details flex justify-between align-start">
+        <div class="image">
+          <img
+            class="full-width"
+            src="/uploads/<%= product.cover %>"
+            alt="<%= product.name %>"
+          />
+        </div>
+        <div class="flex-76">
+          <h1><%= product.name %></h1>
+          <h4>Specifications & Description:</h4>
+          <p><%= product.description %></p>
+          <div
+            style="margin-top: 1rem"
+            class="flex justify-between align-center"
+          >
+            <div>
+              <a
+                class="btn btn-secondary"
+                href="/products/likes/<%= product.id %>"
+              >
+                <i class="fas fa-heart"></i
+              ></a>
+              <span><%= product.likes %> </span>
+              <br />
+              <a
+                class="btn btn-secondary"
+                href="/products/addtocart/<%= product.id %>"
+                ><i class="fas fa-cart-plus"></i>
+              </a>
+              <span>Added</span>
+            </div>
+            <% if(Boolean(user)){ %> <% if(user.isAdmin === 'true'){ %>
+            <div>
+              <a href="/products/edit/<%= product.id %>"
+                ><button style="font-size: 1rem" class="btn btn-primary">
+                  Edit Product
+                </button></a
+              >
+              <a href="/products/delete/<%= product.id %>"
+                ><button style="font-size: 1rem" class="btn btn-primary">
+                  Remove Product
+                </button></a
+              >
+            </div>
+            <% };}%>
+          </div>
+        </div>
+      </div>
+
+      <div class="comments">
+        <% if(product.comments.length){ product.comments.forEach(comment=>{ %>
+        <div class="comment flex justify-between align-center">
+          <p><%= comment.content %></p>
+          <div>
+            <cite style="font-size: 0.9rem; color: midnightblue"
+              >~<%= comment.author.name %></cite
+            >
+            <% if(user && user.id && comment.author.id === user.id){ %>
+            <a style="color: #216b42" href="/comments/edit/<%= comment.id %>"
+              ><i class="far fa-edit"></i
+            ></a>
+            <a style="color: #216b42" href="/comments/delete/<%= comment.id %>"
+              ><i class="far fa-trash-alt"></i
+            ></a>
+            <% } %>
+          </div>
+        </div>
+        <% });} %>
+        <form action="/products/comments/<%= product.id %>" method="POST">
+          <input name="content" type="text" placeholder="Add Comment Here.." />
+          <button style="color: #216b42" type="submit">
+            <i class="fas fa-paper-plane"></i>
+          </button>
+        </form>
+      </div>
+    </main>
+  </body>
+</html>
