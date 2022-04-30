@@ -1,0 +1,90 @@
+.products {
+  aside {
+    border-right: 2px solid green;
+    height: 92.6vh;
+    padding: 1rem;
+    div {
+      margin-bottom: 1.5rem;
+    }
+
+    .tags {
+      display: inline-block;
+      background-color: rgba(0, 255, 0, 0.5);
+      color: black;
+      border-radius: 0.25rem;
+      padding: 0.2rem 0.5rem;
+      margin: 0.25rem;
+      &:hover {
+        cursor: pointer;
+      }
+    }
+
+    .sizes {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: rgba(0, 255, 0, 0.5);
+      color: black;
+      font-weight: 600;
+      border-radius: 50%;
+      height: 2.5rem;
+      width: 2.5rem;
+      margin: 0.25rem;
+      &:hover {
+        cursor: pointer;
+      }
+    }
+    h3 {
+      text-align: center;
+      padding-bottom: 1rem;
+      color: green;
+    }
+  }
+
+  .productlist {
+    height: 92.6vh;
+    overflow: auto;
+    .product {
+      margin: 1rem;
+      width: 20rem;
+      height: 25rem;
+      border: 2px solid green;
+      border-radius: 0.5rem;
+      padding: 1rem;
+    }
+    .img-box {
+      width: 100%;
+      height: 80%;
+      border-radius: 0.45rem;
+      border: 2px solid green;
+      overflow: hidden;
+    }
+    .details {
+      width: 100%;
+      height: 15%;
+      border-radius: 0.45rem;
+      border: 2px solid green;
+      padding: 0.25rem;
+    }
+    .addproduct {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 1.5rem;
+      font-weight: 700;
+    }
+  }
+  .productlist::-webkit-scrollbar {
+    width: 10px;
+  }
+
+  .productlist::-webkit-scrollbar-track {
+    background: rgb(200, 200, 200);
+  }
+
+  .productlist::-webkit-scrollbar-thumb {
+    background-color: green;
+    border-radius: 20px;
+    border: 2px solid rgb(200, 200, 200);
+  }
+}
