@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!--Title-->
+    <title>My Cart | E-Cart</title>
+    <!--Stylesheet-->
+    <link rel="stylesheet" href="/stylesheets/style.css" />
+    <!--Google Fonts-->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;0,300;0,400;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,600;1,700;1,800&display=swap"
+      rel="stylesheet"
+    />
+    <!--Font Awesome-->
+    <script
+      src="https://kit.fontawesome.com/5cc6fb9f6b.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
+    <!--Header-->
+    <header class="header">
+      <div class="container flex justify-between align-center">
+        <a href="/" class="logo"><span>E</span>cart</a>
+        <div class="flex justify-between align-center">
+          <a class="btn btn-primary" href="/users/products">Go Back</a>
+          <% if(Boolean(user)){ %>
+          <a class="btn btn-primary" href="/users/logout">Log Out</a>
+          <% } %>
+          <div class="user-info flex justify-between align-center flex-column">
+            <% if(Boolean(user)){ %>
+            <h2><%= user.name %></h2>
+            <% if(user && (user.isAdmin === 'true')){ %>
+            <a href="/users/adminDashboard"><p>Admin</p></a>
+            <% }else{ %>
+            <p></p>
+            <%};}else{ %>
+            <a class="btn btn-primary" href="/users/signin">Sign In</a>
+            <% }; %>
+          </div>
+        </div>
+      </div>
+    </header>
+    <!--Main-->
+    <div style="height: 75vh" class="container products">
+      <h2
+        style="
+          text-align: center;
+          font-size: 3rem;
+          font-weight: 600;
+          color: green;
+          margin-top: 1rem;
+        "
+      >
+        My Cart
+      </h2>
+      <main
+        style="height: 75vh"
+        class="productlist flex justify-between align-start flex-wrap"
+      >
+        <!-- Products -->
+        <% user.cart.forEach(product=>{ %>
+        <div
+          style="height: 32.5rem"
+          class="product flex justify-center align-center flex-wrap"
+        >
+          <div class="img-box" style="height: 20rem">
+            <img
+              class="full-width"
+              src="/uploads/<%= product.cover %>"
+              alt="<%= product.name %>"
+            />
+          </div>
+          <div
+            style="margin-top: 0.5rem"
+            class="details flex justify-between align-center"
+          >
+            <div class="price">₹<%= product.price %></div>
+            <div class="price">Size: <%= product.size %></div>
+            <div class="totalItems"><%= product.quantity %> Left</div>
+          </div>
+          <div
+            style="margin-top: 0.5rem"
+            class="details flex justify-center align-center"
+          >
+            <a
+              class="btn btn-secondary"
+              href="/products/details/<%= product.id  %>"
+              >View</a
+            >
+            <a
+              class="btn btn-secondary"
+              href="/products/remove/<%= product.id  %>"
+              >Remove</a
+            >
+          </div>
+        </div>
+        <% }); %>
+      </main>
+    </div>
+  </body>
+</html>
