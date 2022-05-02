@@ -1,0 +1,30 @@
+<%- include('partials/header') %>
+
+    <main>
+        <section class="hero-form">
+            <div class="container ">
+                <form class="form" action="/users/login" method="POST">
+                    <div class="form-wrapper">
+                        <% if(info){ %>
+                            <p><%= info %></p>
+                        <% } %>
+                        <div>
+                            Email:
+                            <input type="email" name="email" id="">
+                        </div>
+                        <div>
+                            Password:
+                            <input type="password" name="password" id="">
+                        </div>
+
+                        <div>
+                            <button type="submit">Submit</button>
+                        </div>
+                    </div>
+                </form>
+                
+            </div>
+        </section>
+    </main>
+</body>
+</html>

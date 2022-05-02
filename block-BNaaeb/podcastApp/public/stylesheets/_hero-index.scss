@@ -1,0 +1,29 @@
+.hero-index{
+    background-image: url(/images/podcast-banner.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    min-height: 85vh;
+    
+}
+
+.hero-content{
+    height: 80vh;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: blanchedalmond;
+    font-size: 2rem;
+    text-transform: uppercase;
+    button{
+        padding: 1rem 3rem;
+        border-radius: 10px;
+        border: none;
+        color:blanchedalmond;
+        font-size: 1.25rem;
+        text-transform: uppercase;
+        background-color: black;
+        cursor: pointer;
+    }
+}
