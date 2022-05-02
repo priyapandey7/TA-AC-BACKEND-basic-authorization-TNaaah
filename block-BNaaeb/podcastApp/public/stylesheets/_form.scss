@@ -1,0 +1,35 @@
+
+.form {
+    display: flex;
+    justify-content: center;
+    height: 85vh;
+    align-items: center;
+    
+    .form-wrapper{
+        height: 85vh;
+        height: max-content;
+        padding: 2rem;
+        border-radius: 10px;
+        background-color: black;
+        color: blanchedalmond;
+        width: 40%;
+        &>div{
+            padding: 1rem 0;
+            display: flex;
+            flex-direction: column;
+            
+            
+        }
+    }
+    .isAdmin{
+        display: flex;
+        flex-direction: row;
+    }
+    button{
+        padding: 1rem 2rem;
+        border: none;
+        border-radius: 10px;
+        background-color: white;
+        font-weight: 800;
+    }
+}

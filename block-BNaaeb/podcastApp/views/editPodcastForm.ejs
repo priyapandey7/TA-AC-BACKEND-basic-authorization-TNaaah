@@ -1,0 +1,32 @@
+<%- include('partials/header') %>
+    <main>
+        <section class="hero-form">
+            <div class="container ">
+                <form class="form" action="/podcasts/<%= podcast.id%>" method="POST" enctype="multipart/form-data">
+                    <div class="form-wrapper">
+                        <div>
+                            Title :
+                            <input type="text" name="title" value="<%= podcast.title%>">
+                        </div>
+                        <div>
+                            Description :
+                            <textarea name="description"   cols="30" rows="10"><%= podcast.description%></textarea>
+                        </div>
+                        <div>
+                            Image :
+                            <input type="file" name="image" value="<%= podcast.image%>">
+                        </div>
+                        <div>
+                            Audio Track:
+                            <input type="file" name="audioTrack" value="<%= podcast.audioTrack %>" >
+                        </div>
+                        <div>
+                            <button type="submit">Submit</button>
+                        </div>
+                    </div>
+                </form>
+                
+            </div>
+            <script src="../routes/podcasts.js"></script>
+        </section>
+    </main>

@@ -1,0 +1,15 @@
+<%- include('partials/header') %>
+    <main>
+        <div class="container">
+            <% podcasts.forEach(podcast => { %>
+                <div class="podcast-wrapper">
+                    <img src="" alt="">
+                    <h2>Title : <%= podcast.title %></h2>
+                    <p>Description :<%= podcast.description %></p>
+                    <a href="/podcasts/<%= podcast.id%>/pending">
+                        <button>Learn More...</button>
+                    </a>
+                </div>
+            <% })%>
+        </div>
+    </main>
