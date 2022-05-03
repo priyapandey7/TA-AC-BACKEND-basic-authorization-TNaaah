@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/stylesheets/style.css">
+    <title>Document</title>
+</head>
+<body>
+    <header class="header">
+        <div class="container ">
+            <div class="header-wrapper">
+                <div class="brand_name">
+                    <a href="/podcasts">
+                        <span>MyPodCast Studio</span>
+                    </a>
+                </div>
+                <nav class="navigation">
+                    <ul class="nav-list">
+                        <% if(user){ %>
+                            <li>
+                                <span>Hi, <%= user.firstName + user.lastName %></span>
+                                <span>
+                                    (
+                                        <% if(user.isAdmin){ %>
+                                            Admin
+                                        <% } else { %>
+                                            User
+                                        <% } %>
+                                    )
+                                    
+                                </span>
+                            </li>
+                            <% if(user.isAdmin){ %>
+                            <li>
+                                <a href="/podcasts/pending">
+                                    <button>Pending Requests</button>
+                                </a>
+                            </li>
+                            <% } %>
+                            <li>
+                                <a href="/podcasts/new">
+                                    <button>Add Podcast</button>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/users/logout">
+                                    <button>Log-Out</button>
+                                </a>
+                            </li> 
+                        <% } else { %>
+                            <li>
+                                <a href="/users/login">
+                                    <button>Login</button>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/users/register">
+                                    <button>Register</button>
+                                </a>
+                            </li>
+                        <% } %>
+                        
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>    

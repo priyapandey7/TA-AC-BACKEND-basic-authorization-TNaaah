@@ -1,0 +1,42 @@
+<%- include('partials/header') %>
+    <main>
+        <section class="hero-form">
+            <div class="container ">
+                <form class="form" action="/podcasts" method="POST" enctype="multipart/form-data">
+                    <div class="form-wrapper">
+                        <div>
+                            Title :
+                            <input type="text" name="title">
+                        </div>
+                        <div>
+                            Description :
+                            <textarea name="description"   cols="30" rows="10"></textarea>
+                        </div>
+                        <div>
+                            Image :
+                            <input type="file" name="image" >
+                        </div>
+                        <div>
+                            Audio Track:
+                            <input type="file" name="audioTrack" >
+                        </div>
+                        <% if(user.isAdmin){ %>
+                            <h2>Subcription :</h2>
+                            <div>
+                                <select name="podcast_subscription">
+                                    <option value="free" selected>Free</option>
+                                    <option value="vip">VIP</option>
+                                    <option value="premium">Premium</option>
+                                  </select>
+                            </div>
+                        <% } %>
+                        <div>
+                            <button type="submit">Submit</button>
+                        </div>
+                    </div>
+                </form>
+                
+            </div>
+            <script src="../routes/podcasts.js"></script>
+        </section>
+    </main>

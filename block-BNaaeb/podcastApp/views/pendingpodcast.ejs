@@ -1,0 +1,21 @@
+<%- include('partials/header') %>
+    <main>
+        <div class="container">
+            <h2>Title : <%= podcast.title %></h2>
+            <h2>Author : <%= podcast.author.firstName+ " " +podcast.author.lastName %></h2>
+            <p>
+                Description : <%= podcast.description %>
+            </p>
+            <img src="/uploads/<%= podcast.image%>" alt="">
+            <audio autoplay controls>
+                <source src="/uploads/<%=podcast.audioTrack%>" />
+            </audio>
+            <div>
+                <a href="/podcasts/<%= podcast.id %>/verifyPending">
+                    <button>Verify</button>
+                </a>
+
+            </div>
+
+        </div>  
+    </main>
