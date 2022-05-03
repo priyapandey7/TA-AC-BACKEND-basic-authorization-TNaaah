@@ -36,7 +36,7 @@ app.use(session({
   secret : process.env.SECRET,
   resave : false,
   saveUninitialized : false,
-  store: MongoStore.create({ mongoUrl: 'mongodb://localhost/podcast' })
+  store: MongoStore.create({ mongoUrl: 'mongodb://localhost/podcastApp' })
 }));
 
 app.use(flash());
